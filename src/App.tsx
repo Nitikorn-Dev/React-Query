@@ -1,24 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import User from './User';
+import UserDetail from './UserDetail';
+
 
 function App() {
+const [userId,setUserId] = React.useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{display:'flex'}}>
+      <div style={{padding:20,width:'30%',borderRight:'2px solid'}}>
+    <User setUserId={setUserId} />
+      </div>
+      <div style={{padding:20,width:'70%'}}>
+        <UserDetail userId={userId} />
+        </div>
+      
     </div>
   );
 }
