@@ -9,6 +9,7 @@ function UserDetail({ userId }: { userId: string }) {
         ['user', userId],
         () => getUser(userId),
         // { enabled: Boolean(userId) }
+        // { enabled: false }
     );
 
     const [isEditing, setIsEditing] = React.useState(false);
@@ -20,7 +21,7 @@ function UserDetail({ userId }: { userId: string }) {
     }
     return (
         <div>
-            <button onClick={()=>setIsEditing(!isEditing)}>{isEditing?'CANCEL':'EDIT'}</button>
+            <button onClick={() => setIsEditing(!isEditing)}>{isEditing ? 'CANCEL' : 'EDIT'}</button>
             {/* <div style={{ display: isFetching ? 'block' : 'none' }}>Background Fetching...</div> */}
             {isEditing && user ? <UserForm user={user} setIsEditing={setIsEditing} />
                 :
